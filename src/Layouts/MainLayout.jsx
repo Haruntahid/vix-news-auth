@@ -3,7 +3,9 @@ import { Outlet } from "react-router-dom";
 function MainLayout() {
   return (
     <>
-      <Outlet />
+      <div className="container mx-auto">
+        <Outlet />
+      </div>
     </>
   );
 }
