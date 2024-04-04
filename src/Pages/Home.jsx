@@ -25,7 +25,7 @@ function Home() {
         </Marquee>
       </div>
       <Navbar />
-      <div className="grid grid-cols-4">
+      <div className="grid grid-cols-4 gap-6">
         <HomeLeft />
         <div className="col-span-2">
           <HomeCenter />
