@@ -1,7 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
-import user from "../assets/user.png";
+import userImg from "../assets/user.png";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 function Navbar() {
+  const { user } = useContext(AuthContext);
+  // console.log(user);
   return (
     <>
       <div className="navbar bg-base-100">
@@ -76,11 +80,23 @@ function Navbar() {
           </ul>
         </div>
         <div className="navbar-end">
-          <img className="w-10 h-10 mr-5" src={user} alt="" />
+          <img className="w-10 h-10 mr-5" src={userImg} alt="" />
 
-          <Link className="text-white px-4 py-2 bg-[#403F3F] font-semibold rounded-sm">
-            Login
-          </Link>
+          {user ? (
+            <Link
+              to={"/login"}
+              className="text-white px-4 py-2 bg-[#403F3F] font-semibold rounded-sm"
+            >
+              Sign Out
+            </Link>
+          ) : (
+            <Link
+              to={"/login"}
+              className="text-white px-4 py-2 bg-[#403F3F] font-semibold rounded-sm"
+            >
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </>
